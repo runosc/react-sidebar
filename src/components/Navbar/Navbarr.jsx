@@ -4,6 +4,7 @@ import {AiOutlineSetting} from 'react-icons/ai'
 import { useNavigate } from 'react-router'
 const Navbarr = () => {
     const navigate = useNavigate();
+    //deneme
 
  
   return (
