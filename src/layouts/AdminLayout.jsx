@@ -13,7 +13,7 @@ import { useSelector,useDispatch } from 'react-redux/es/exports';
 import Hata from '../components/Hata/Hata'
 
 
-
+//deneme
 
 
 const AdminLayout = () => {
