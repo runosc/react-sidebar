@@ -41,7 +41,7 @@ const DeneyimList = () => {
   useEffect(() => {
     dilGetir();
   }, [])
-
+//seçilen dilin silinmesi
   const dilSil = (id) => {
     createdAPIEndpoint(ENDPOINTS.YABANCIDILLER).delete(id)
       .then(res => {
@@ -53,6 +53,8 @@ const DeneyimList = () => {
         //hata olunca çalışacak kod
       })
   }
+//modal açılırken id yi alıp bilgileri getiriyor
+
  const dilModal=(id) => {
   createdAPIEndpoint(ENDPOINTS.YABANCIDILLER).fetchById(id)
   .then(res =>{
