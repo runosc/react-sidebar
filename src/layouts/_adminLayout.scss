@@ -1,0 +1,36 @@
+.home_content {
+    position: absolute;
+    height: 100%;
+    left: 78px;
+    width: calc(100% - 78px);
+    transition: all 0.5s ease;
+    z-index: 98;
+
+    .home_content_inner {
+        margin-top: 10px;
+        overflow: auto;
+        overflow-x: hidden;
+        max-height: calc(97vh - 50px);
+        max-width: calc(99vw - 78px);
+        &::-webkit-scrollbar {
+            width: 0px;
+            background: transparent; /* make scrollbar transparent */
+        }
+    }
+    .page_title {
+        font-size: 55px;
+        color: $SidebarSecondary;
+    }
+
+    // .text {
+    //     // font-size: 25px;
+    //     // font-weight: 500;
+    //     color: $SidebarSecondary;
+    //     margin: 12px;
+    // }
+}
+
+.home_active {
+    max-width: calc(99vw - 240px);
+    left: 240px;
+}

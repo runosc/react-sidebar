@@ -1,0 +1,63 @@
+body {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    height: 100vh;
+}
+ol,
+ul {
+    padding: 0;
+}
+
+.dark {
+    .pc_text1{
+        color: #fd703b;
+    }
+    .pc_text2{
+        color: #1B2430;
+    }
+    .pc_background1{
+        background-color: #1B2430;
+    }
+    .pc_background2{
+        background-color: #f6f6f6;
+    }
+    // background: black;
+    // color: #fff;
+    // text-align: center;
+  
+}
+
+.light {
+    // background: #ddd;
+    // color: #555;
+    // text-align: center;
+    .pc_text1{
+        color: #1B2430;
+    }
+    .pc_text2{
+        color: #f6f6f6;
+    }
+    .pc_background1{
+        background-color: #f6f6f6;
+    }
+    .pc_background2{
+        background-color: #1B2430;
+    }
+}
+
+.speech-bubble {
+    border-radius: 5px;
+    background: $Instagram;
+    color: #fff;
+    display: inline-block;
+    @include set-font-1(normal, 500, 32px, 50px);
+    margin-bottom: 1em;
+    text-decoration: none;
+    padding: 0 1em;
+    position: relative;
+    text-align: center;
+    vertical-align: top;
+    margin: 5px 0px;
+    height: 50px;
+    width: 70px;
+}

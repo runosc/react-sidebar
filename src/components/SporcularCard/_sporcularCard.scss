@@ -1,0 +1,57 @@
+.pc_container{
+    width: 200px;
+    height: 260px;
+
+    &:hover{
+        cursor: pointer;
+        background-color:rgba(0, 0, 0, 0.2);
+        transition: 0.2s;
+
+    }
+    .pc_header{
+        padding: 10px;
+        img{
+            width: 150px;
+            height: 150px;
+            border-radius: 75px;
+            object-fit:cover;
+        }
+        p{
+            font-weight: bold;
+            font-size: 20px;
+        }
+    }
+    .pc_name{
+        width: 100%;
+        height: 25px;
+        text-align: center;
+        font-weight: bold;
+        text-transform: uppercase;
+        
+    }
+    .pc_footer{
+        .pc_uyruk{
+            margin-top: 10px;
+            text-transform: uppercase;
+            font-weight: bold;
+            height: 20px;
+        }
+        
+        img{
+            width: 30px;
+            height: 20px;
+            object-fit:cover;
+            margin-right: 5px;
+            
+        }
+        p{
+            margin: 0;
+        }
+        .pc_yas_container{
+            align-items: center;
+        }
+        .pc_yas_tarih{
+            font-size: 12px;
+        }
+    }
+}

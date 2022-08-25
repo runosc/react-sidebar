@@ -1,0 +1,332 @@
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 78px;
+    background: $Sidebar;
+    padding: 6px 14px;
+    transition: all 0.5s ease;
+
+    .nav_list {
+        overflow: auto;
+        overflow-x: hidden;
+        &::-webkit-scrollbar {
+            width: 0px;
+            background: transparent; /* make scrollbar transparent */
+        }
+        min-height: 550px;
+        max-height: calc(100vh - 180px);
+        .li_search {
+            margin-bottom: 35px;
+        }
+    }
+
+    .logo_content {
+        .logo {
+            color: $SidebarText;
+            display: flex;
+            height: 50px;
+            width: 100%;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.5s ease;
+
+            svg {
+                font-size: 28px;
+                margin-right: 5px;
+            }
+            .logo_name {
+                margin-left: 15px;
+                font-size: 16px;
+                font-weight: 400;
+                max-height: 24px;
+                overflow: hidden;
+                display:none;
+            }
+        }
+    }
+
+    #btn {
+        position: absolute;
+        color: $SidebarText;
+        left: 50%;
+        top: 5px;
+        font-size: 20px;
+        height: 50px;
+        width: 25px;
+        text-align: center;
+        line-height: 50px;
+        transform: translateX(-50%);
+    }
+
+    ul {
+        margin-top: 20px;
+        li {
+            position: relative;
+            height: 50px;
+            width: 100%;
+            margin: 0 5px;
+            list-style: none;
+            line-height: 50px;
+
+            .links_name {
+                opacity: 0;
+                pointer-events: none;
+                transition: all 0.5s ease;
+            }
+
+            .sidebar_dropdown_icon {
+                position: absolute;
+                right: 0;
+                top: 0;
+                margin-top: 1px;
+                margin-right: 20px;
+                color: $SidebarText;
+                transition: all 0.5s ease;
+                display: none;
+                svg {
+                    width: 520;
+                    height: 50;
+                }
+            }
+
+            .tooltip {
+                position: absolute;
+                left: 122px;
+                top: 50½;
+                transform: translate(-50%, -50%);
+                border-radius: 6px;
+                height: 35px;
+                width: 122px;
+                background: $SidebarText;
+                color: $Sidebar;
+                line-height: 35px;
+                text-align: center;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+                transition: 0s;
+                opacity: 0;
+                pointer-events: none;
+                display: block;
+            }
+
+            &:hover {
+                .tooltip {
+                    transition: all 0.5s ease;
+                    opacity: 1;
+                    top: 50%;
+                }
+            }
+
+            .search-icon {
+                position: absolute;
+                z-index: 99;
+                color: $SidebarText;
+                font-size: 26px;
+                margin-left: 12px;
+                margin-top: 12px;
+                transition: all 0.5s ease;
+                // &:hover {
+                //     background: $SidebarText;
+                //     color: $SidebarSecondary;
+                // }
+            }
+
+            input {
+                position: absolute;
+                height: 100%;
+                width: 100%;
+                left: 0;
+                top: 0;
+                border-radius: 12px;
+                outline: none;
+                border: none;
+                background: $SidebarSecondary;
+                padding-left: 50px;
+                font-size: 18px;
+                color: $SidebarText;
+                &:hover {
+                    background: $SidebarText;
+                    .search-icon {
+                        color: $SidebarSecondary;
+                    }
+                }
+            }
+
+            .link_item {
+                color: $SidebarText;
+                display: flex;
+                align-items: center;
+                text-decoration: none;
+                transition: all 0.4 ease;
+                border-radius: 12px;
+                white-space: nowrap;
+                &:hover {
+                    color: $Sidebar;
+                    background: $SidebarText;
+                    .sidebar_dropdown_icon {
+                        color: $Sidebar;
+                    }
+                }
+            }
+
+            i {
+                height: 50px;
+                min-width: 50px;
+                border-radius: 12px;
+                line-height: 50px;
+                text-align: center;
+            }
+        }
+    }
+
+    .profile_content {
+        position: absolute;
+        color: $SidebarText;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+
+        .profile {
+            position: relative;
+            padding: 15px 9px;
+            height: 70px;
+            background: none;
+            transition: all 0.5s ease;
+
+            .profile_details {
+                display: flex;
+                align-items: center;
+                opacity: 0;
+                pointer-events: none;
+                white-space: nowrap;
+
+                img {
+                    height: 45px;
+                    width: 45px;
+                    object-fit: cover;
+                    border-radius: 12px;
+                }
+
+                .name_job {
+                    margin-left: 10px;
+
+                    .name {
+                        font-size: 15px;
+                        font-weight: 400;
+                    }
+
+                    .job {
+                        font-size: 12px;
+                    }
+                }
+            }
+
+            #log_out {
+                position: absolute;
+                width: 50px;
+                height: 50px;
+                padding: 15px;
+                left: 50%;
+                bottom: 22px;
+                transform: translateX(-50%);
+                min-width: 50px;
+                line-height: 50px;
+                font-size: 20px;
+                border-radius: 12px;
+                text-align: center;
+                transition: all 0.4s ease;
+                background: $SidebarSecondary;
+
+            }
+        }
+    }
+}
+
+.active {
+    width: 240px;
+
+    .logo_content {
+        .logo {
+            opacity: 1;
+            pointer-events: none;
+        }
+    }
+
+    .logo_name{
+        display:block !important;
+    }
+    .sidebar_dropdown_icon{
+        display:block !important;
+    }
+
+    ul {
+        li {
+            .links_name {
+                transition: all 0.5s ease;
+                opacity: 1;
+                pointer-events: auto;
+            }
+            .tooltip {
+                display: none;
+            }
+        }
+    }
+
+    #btn {
+        left: 90%;
+    }
+
+    .profile_content {
+        .profile {
+            background: none;
+            .profile_details {
+                opacity: 1;
+                pointer-events: auto;
+            }
+
+            #log_out {
+                left: 88%;
+                background: none;
+            }
+        }
+    }
+
+    // Subnavs
+    .dropdown-link {
+        // right: 0;
+        background: $SidebarSecondary;
+        margin-left: 30px;
+        border-radius: 12px;
+        margin-bottom: 5px;
+        height: 40px;
+        width: 85%;
+        padding-left: 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        text-decoration: none;
+        color: $SidebarText;
+        font-size: 16px;
+        transition: all 0.3s ease;
+        svg {
+            color: $SidebarText;
+            position: relative;
+            margin-right: -10px;
+            // color: blue;
+        }
+        .sidebar-label {
+            margin-left: 24px;
+            opacity: 1;
+        }
+        &:hover {
+            svg {
+                position: relative;
+                color: $SidebarSecondary;
+            }
+            background: $SidebarText;
+            cursor: pointer;
+        }
+    }
+}

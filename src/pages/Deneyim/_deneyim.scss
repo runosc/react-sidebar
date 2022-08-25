@@ -1,0 +1,29 @@
+.form_bg {
+    background: $FormBg;
+    border-radius: 12px;
+    margin: 15px;
+    padding: 40px 50px;
+    padding-top: 60px;
+    position: relative;
+
+    .form_title {
+        background: $FormBg;
+        border: 3px solid $SidebarSecondary;
+        color: $SidebarText;
+        position: absolute;
+        top: -15px;
+        left: -15px;
+        border-radius: 5px;
+        padding: 8px 12px;
+    }
+
+    .form_label {
+        color: $FormTxt;
+    }
+}
+
+.table_bg {
+    border-radius: 12px;
+    margin: 15px 0;
+    margin-bottom: 100px;
+}

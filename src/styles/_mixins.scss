@@ -1,0 +1,19 @@
+/******************** Mixins ********************/
+
+@mixin set-font($fontfamily, $fontstyle, $fontweight, $size, $lineheight) {
+    font-family: $fontfamily;
+    font-style: $fontstyle;
+    font-weight: $fontweight;
+    font-size: $size;
+    line-height: $lineheight;
+}
+
+@mixin set-font-1($fontstyle, $fontweight, $size, $lineheight) {
+    font-style: $fontstyle;
+    font-weight: $fontweight;
+    font-size: $size;
+    line-height: $lineheight;
+}
+
+// @include set-font('DM Sans',normal,500,24px,30px);
+//@include set-font(fontfamily,fontstyle,fontweight,size,lineheight);
