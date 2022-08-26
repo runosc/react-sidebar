@@ -1,5 +1,5 @@
 .nav_container{
-    height: 100px;
+    height: 75px;
     width: 100%;
     background-color: var(--NavbarColor);
     display: flex;
@@ -15,7 +15,7 @@
     .set_icon{
         &:hover{
             cursor: pointer;
-            fill:red;
+            width: 25px;
         }
     }
 }

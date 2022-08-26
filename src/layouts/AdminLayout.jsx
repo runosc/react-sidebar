@@ -24,7 +24,7 @@ const AdminLayout = () => {
         <Sidebar />
         <div className="home_content">
           <Navbarr/>
-          <div className="home_content_inner">
+          <div className="home_content_inner background_color2">
             <Routes>
               <Route path="/" element={<h1>Anasayfa</h1>}></Route>
               <Route path="/hakkimda" element={<h1>Hakkımda</h1>}></Route>

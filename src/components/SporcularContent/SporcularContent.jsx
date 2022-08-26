@@ -17,7 +17,7 @@ const SporcularContent = () => {
     }, [])
     return (
         <div>
-            <h1 className='text-center border-bottom border-top mb-4'>Sporcular</h1>
+            <h1 className='text-center border-bottom border-top mb-4 text_color2'>Sporcular</h1>
             <div className="container">
                 <div className="row">
 

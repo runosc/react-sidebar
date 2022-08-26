@@ -9,39 +9,70 @@ ul {
 }
 
 .dark {
-    .pc_text1{
-        color: #fd703b;
+    .text_color1 {
+        color: #1b2430;
+        transition: all 0.4s ease;
     }
-    .pc_text2{
-        color: #1B2430;
+    .text_color2 {
+        color: #f6f6f6;
+        transition: all 0.4s ease;
     }
-    .pc_background1{
-        background-color: #1B2430;
+    .pc_background1 {
+        background-color: #1b2430;
     }
-    .pc_background2{
+    .pc_background2 {
+        background-color: #1b2430;
+    }
+
+    .icon_color {
+        fill: #fd703b;
+        transition: all 0.4s ease;
+    }
+    .background_color {
         background-color: #f6f6f6;
+        transition: all 0.4s ease;
+    }
+    .background_color2 {
+        background-color: #1b2430;
+        transition: all 0.4s ease;
     }
     // background: black;
     // color: #fff;
     // text-align: center;
-  
 }
 
 .light {
+    transition: all 1s ease;
+
     // background: #ddd;
     // color: #555;
     // text-align: center;
-    .pc_text1{
-        color: #1B2430;
+    .text_color1 {
+        color: #fd703b;
+        transition: all 0.4s ease;
     }
-    .pc_text2{
-        color: #f6f6f6;
+    .text_color2 {
+        color: #1b2430;
+        transition: all 0.4s ease;
     }
-    .pc_background1{
+    .pc_background1 {
         background-color: #f6f6f6;
     }
-    .pc_background2{
-        background-color: #1B2430;
+    .pc_background2 {
+        background-color: #1b2430;
+    }
+    .icon_color {
+        transition: all 0.4s ease;
+
+        fill: #1b2430;
+    }
+    .background_color {
+        background-color: #1b2430;
+        transition: all 0.4s ease;
+    }
+    .background_color2 {
+        background-color: #f6f6f6;
+        transition: all 0.4s ease;
     }
 }
 
