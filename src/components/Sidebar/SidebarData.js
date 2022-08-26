@@ -13,12 +13,15 @@ export const SidebarData = [
     title: 'Ana Sayfa',
     path: '/',
     icon: <TbIcons.TbLayoutGrid />,
+    open:"true"
   },
   {
     id: 2,
     title: 'Sporcular',
     path: '/sporcular',
     icon: <IoIcons.IoIosPaper />,
+    open:"true",
+
 
     subNav: [
       {
@@ -40,6 +43,7 @@ export const SidebarData = [
     title: 'Eğitim',
     path: '/egitim',
     icon: <AiIcons.AiFillHome />,
+    open:"true",
 
     subNav: [
       {
@@ -61,12 +65,15 @@ export const SidebarData = [
     title: 'Diller',
     path: '/deneyim',
     icon: <IoIcons.IoIosPaper />,
+    open:localStorage.getItem("dilToggle"),
+
   },
   {
     id: 5,
     title: 'Uyruklar',
     path: '/uyruklar',
     icon: <IoIcons.IoIosPaper />,
+    open:"true",
   },
   
   {
@@ -74,6 +81,7 @@ export const SidebarData = [
     title: 'Onur',
     path: '/onur',
     icon: <TbIcons.TbLayoutGrid />,
+    open:"false",
   },
 ]
 

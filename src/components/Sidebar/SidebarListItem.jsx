@@ -8,7 +8,7 @@ import * as BiIcons from 'react-icons/bi'
 import * as TbIcons from 'react-icons/tb'
 import { Link } from 'react-router-dom'
 
-const SidebarListItem = ({ icon, title, path, subNavList }) => {
+const SidebarListItem = ({ icon, title, path, subNavList,deneme }) => {
   const [subnav, setSubnav] = useState(false)
   console.log(subNavList)
 
@@ -19,7 +19,7 @@ const SidebarListItem = ({ icon, title, path, subNavList }) => {
 
   return (
     <>
-      <li>
+      <li className={deneme==="true"?"d":"d-none"}>
         <Link
           className="link_item"
           to={path}

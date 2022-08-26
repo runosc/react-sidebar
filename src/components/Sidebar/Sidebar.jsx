@@ -76,6 +76,7 @@ const Sidebar = () => {
         </li> */}
 
         {SidebarData.map((item) => {
+          console.log(item.title,"  --  ",item.open , typeof(item.open))
           return (
             <SidebarListItem
               subNavList={item.subNav}
@@ -83,6 +84,8 @@ const Sidebar = () => {
               icon={item.icon}
               title={item.title}
               path={item.path}
+              // style={item.open==='true'?{"display":"block"}:{"display":"none"}}
+             deneme={item.open}
             />
           )
         })}

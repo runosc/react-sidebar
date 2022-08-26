@@ -2,6 +2,8 @@ import React from 'react'
 import { Formik, Field, Form } from 'formik';
 import { useSelector,useDispatch } from 'react-redux/es/exports';
 import { setDilToggle } from '../../stores/site';
+import { sidebarUpdate } from '../../Helpers/sidebarHelper';
+
 
 const Ayarlar = () => {
     const dispatch =useDispatch()
@@ -36,7 +38,12 @@ const Ayarlar = () => {
             
             <div className="d-flex p-5 align-items-center m-0">
             <p className='me-3'>Diller</p>
-            <button onClick={()=> dispatch(setDilToggle())}>   
+            <button onClick={()=> {
+                dispatch(setDilToggle());
+                sidebarUpdate();
+                console.log(">>>>>>>>>>>>>>",localStorage.getItem("dilToggle"))
+
+                }}>   
                     {dilToggleAyar ? 'Açık':'Kapalı'}
             </button>
             </div>
