@@ -62,6 +62,10 @@ const DeneyimList = () => {
     setDilData(res);
     handleShow();
     console.log("dilData",dilData);
+    // console.log("kritik",dilData.data.data.dilICon)
+    // console.log("kritik isim",dilData.data.data.dilIsim)
+
+
   })
  }
 
@@ -95,9 +99,10 @@ const DeneyimList = () => {
 
   } = useFormik({
     initialValues: {
-      dilIsim:" ",
-      dilIcon:" ",
+      dilIsim:dilData?.data?.data?.dilIsim,
+      dilIcon:dilData?.data?.data?.dilIcon
     },
+    enableReinitialize: true,
 
     onSubmit: (values, actions) => {
       console.log(errors)
@@ -136,6 +141,7 @@ const DeneyimList = () => {
                         className="form-control"
                         id="dilIsim"
                         name="dilIsim"
+                        // onChange={values.dilIsim}
                         value={values.dilIsim}
                         // value={dilData?.data?.data?.dilIsim}
                         // touched={dilData?.data?.data?.dilIsim}
@@ -158,7 +164,7 @@ const DeneyimList = () => {
                         type="text"
                         className="form-control"
                         // value={dilData?.data?.data?.dilIcon}
-                        // value={values.dilIcon}
+                        value={values.dilIcon}
 
                         onChange={handleChange}
                       />
@@ -203,7 +209,9 @@ const DeneyimList = () => {
                         <th scope='row'><img style={{ "width": "35px" }} src={data.dilIcon} alt="" /></th>
                         <th scope='row'>{data.dilIcon}</th>
                         <th scope='row'>
-                          <button className="btn btn-warning" onClick={() => dilModal(data.id)}>Düzenle</button>
+                          <button className="btn btn-warning" onClick={() => {
+                            dilModal(data.id)
+                            }}>Düzenle</button>
                         </th>
                         <th scope='row'>
                           <button className="btn btn-danger" onClick={() => dilSil(data.id)}>Sil</button>
