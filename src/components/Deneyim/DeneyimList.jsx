@@ -4,18 +4,22 @@ import * as XLSX from 'xlsx';
 import Button from 'react-bootstrap/Button';
 import { useFormik } from 'formik';
 import Modal from 'react-bootstrap/Modal';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchDil } from '../../stores/dilGetir'
 
 
 
 
 const DeneyimList = () => {
+  const dispatch = useDispatch();
+  const dilReduxGetir = useSelector((state) => state.dilGetir);
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const [diller, setDiller] = useState();
-  const [dilData,setDilData]=useState([]);
- 
-  
+  const [dilData, setDilData] = useState([]);
+
+
 
 
 
@@ -41,46 +45,53 @@ const DeneyimList = () => {
   useEffect(() => {
     dilGetir();
   }, [])
-//seçilen dilin silinmesi
+
+  
+  useEffect(() => {
+    dispatch(fetchDil());
+  }, [])
+  //seçilen dilin silinmesi
   const dilSil = (id) => {
     createdAPIEndpoint(ENDPOINTS.YABANCIDILLER).delete(id)
       .then(res => {
         console.log(res);
-        dilGetir();
+    dispatch(fetchDil());
+      
 
       })
       .catch(err => {
         //hata olunca çalışacak kod
       })
   }
-//modal açılırken id yi alıp bilgileri getiriyor
+  //modal açılırken id yi alıp bilgileri getiriyor
 
- const dilModal=(id) => {
-  createdAPIEndpoint(ENDPOINTS.YABANCIDILLER).fetchById(id)
-  .then(res =>{
-    console.log("dilModal",res.data);
-    setDilData(res);
-    handleShow();
-    console.log("dilData",dilData);
-    // console.log("kritik",dilData.data.data.dilICon)
-    // console.log("kritik isim",dilData.data.data.dilIsim)
+  const dilModal = (id) => {
+    createdAPIEndpoint(ENDPOINTS.YABANCIDILLER).fetchById(id)
+      .then(res => {
+        console.log("dilModal", res.data);
+        setDilData(res);
+        handleShow();
+        console.log("dilData", dilData);
+        // console.log("kritik",dilData.data.data.dilICon)
+        // console.log("kritik isim",dilData.data.data.dilIsim)
 
 
-  })
- }
+      })
+  }
 
- const dilGuncelle=(id) => {
-  createdAPIEndpoint(ENDPOINTS.YABANCIDILLER).update({
+  const dilGuncelle = (id) => {
+    createdAPIEndpoint(ENDPOINTS.YABANCIDILLER).update({
 
-    id:id,
-    dilIcon:values.dilIcon,
-    dilIsim:values.dilIsim
-  })
-  .then(res =>{
-    handleClose();
-    dilGetir();
-  })
- }
+      id: id,
+      dilIcon: values.dilIcon,
+      dilIsim: values.dilIsim
+    })
+      .then(res => {
+        handleClose();
+        // dilGetir();
+        dispatch(fetchDil());
+      })
+  }
 
 
 
@@ -99,8 +110,8 @@ const DeneyimList = () => {
 
   } = useFormik({
     initialValues: {
-      dilIsim:dilData?.data?.data?.dilIsim,
-      dilIcon:dilData?.data?.data?.dilIcon
+      dilIsim: dilData?.data?.data?.dilIsim,
+      dilIcon: dilData?.data?.data?.dilIcon
     },
     enableReinitialize: true,
 
@@ -111,81 +122,81 @@ const DeneyimList = () => {
       console.log("values", values);
     },
   })
-    // console.log("yether",values.dilIcon)
+  // console.log("yether",values.dilIcon)
   return (
     <>
 
-  <Modal show={show} onHide={handleClose}>
+      <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Dil Güncelle</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-         
-        <form
-                onSubmit={handleSubmit}
-                autoComplete="off"
-                className="form_bg"
-              >
-                <div className="row justify-content-center">
-                  <div >
-                    <div className="mb-3">
-                      {/* Şirket Adı */}
-                      <label
-                        htmlFor="dilIsim"
-                        className="form_label form-label"
-                      >
-                        Dil Adı
-                      </label>
-                      <input
-                        type="text"
-                        className="form-control"
-                        id="dilIsim"
-                        name="dilIsim"
-                        // onChange={values.dilIsim}
-                        value={values.dilIsim}
-                        // value={dilData?.data?.data?.dilIsim}
-                        // touched={dilData?.data?.data?.dilIsim}
-                        // initialValues={dilData?.data?.data?.dilIsim}
-                        // placeholder={dilData?.data?.data?.dilIsim}
-                        onChange={handleChange}
-                      />
-                    </div>
-                    <div className="mb-3">
-                      {/* Pozisyon Adı */}
-                      <label
-                        htmlFor="dilIcon"
-                        className="form_label form-label"
-                      >
-                        Dil Icon
-                      </label>
-                      <input
-                        id="dilIcon"
-                        name="dilIcon"
-                        type="text"
-                        className="form-control"
-                        // value={dilData?.data?.data?.dilIcon}
-                        value={values.dilIcon}
 
-                        onChange={handleChange}
-                      />
-                      
-                    </div>
-                    <div>
-                      <button type="submit" className="btn btn-warning" onClick={()=> dilGuncelle(dilData.data.data.id)}>
-                        Güncelle
-                      </button>
-                    </div>
-                  </div>
+          <form
+            onSubmit={handleSubmit}
+            autoComplete="off"
+            className="form_bg"
+          >
+            <div className="row justify-content-center">
+              <div >
+                <div className="mb-3">
+                  {/* Şirket Adı */}
+                  <label
+                    htmlFor="dilIsim"
+                    className="form_label form-label"
+                  >
+                    Dil Adı
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="dilIsim"
+                    name="dilIsim"
+                    // onChange={values.dilIsim}
+                    value={values.dilIsim}
+                    // value={dilData?.data?.data?.dilIsim}
+                    // touched={dilData?.data?.data?.dilIsim}
+                    // initialValues={dilData?.data?.data?.dilIsim}
+                    // placeholder={dilData?.data?.data?.dilIsim}
+                    onChange={handleChange}
+                  />
                 </div>
-              </form>
+                <div className="mb-3">
+                  {/* Pozisyon Adı */}
+                  <label
+                    htmlFor="dilIcon"
+                    className="form_label form-label"
+                  >
+                    Dil Icon
+                  </label>
+                  <input
+                    id="dilIcon"
+                    name="dilIcon"
+                    type="text"
+                    className="form-control"
+                    // value={dilData?.data?.data?.dilIcon}
+                    value={values.dilIcon}
+
+                    onChange={handleChange}
+                  />
+
+                </div>
+                <div>
+                  <button type="submit" className="btn btn-warning" onClick={() => dilGuncelle(dilData.data.data.id)}>
+                    Güncelle
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
         </Modal.Body>
       </Modal>
 
       <div className="container">
 
-      <button onClick={()=>downloadExcel(diller)}>
-    Download As Excel
-</button>
+        <button onClick={() => downloadExcel(diller)}>
+          Download As Excel
+        </button>
         <div className="row">
           <div className="col-md-12">
             <div>Diller</div>
@@ -201,6 +212,36 @@ const DeneyimList = () => {
                   </tr>
                 </thead>
                 <tbody>
+                  {/* <button onClick={() => {dispatch(fetchDil())}}>Dilleri Getir</button> */}
+
+                  {dilReduxGetir.loading && 'Yükleniyor'}
+                  {dilReduxGetir.error && dilReduxGetir.error}
+                  {/* {console.log(dilReduxGetir.data)} */}
+
+                {dilReduxGetir.data.data && dilReduxGetir.data.data.map((data,index) => {
+                  
+                    return (
+                      <tr key={index}>
+                        <th scope='row'>{index}</th>
+                        <th scope='row'>{data.dilIsim}</th>
+                        <th scope='row'><img style={{ "width": "35px" }} src={data.dilIcon} alt="" /></th>
+                        <th scope='row'>{data.dilIcon}</th>
+                        <th scope='row'>
+                          <button className="btn btn-warning" onClick={() => {
+                            dilModal(data.id)
+                          }}>Düzenle</button>
+                        </th>
+                        <th scope='row'>
+                          <button className="btn btn-danger" onClick={() => dilSil(data.id)}>Sil</button>
+                        </th>
+                      </tr>
+                    )
+
+
+                  })}
+
+
+                  {/* 
                   {diller && diller.map((data, index) => {
                     return (
                       <tr key={index}>
@@ -224,8 +265,11 @@ const DeneyimList = () => {
                       </tr>
 
                     )
-                  })}
+                  })} */}
+
                 </tbody>
+
+
 
                 {/* 
                 <tbody>

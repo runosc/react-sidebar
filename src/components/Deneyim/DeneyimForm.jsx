@@ -4,10 +4,16 @@ import { useFormik } from 'formik'
 import { createdAPIEndpoint, ENDPOINTS } from '../../api'
 import * as XLSX from 'xlsx';
 
+import { fetchDil } from '../../stores/dilGetir'
+import { useDispatch } from 'react-redux';
+
+
 
 
 
 const DeneyimForm = () => {
+  const dispatch = useDispatch();
+
   const [deneyimler, setDeneyimler] = useState([])
   const [json, setJson] = useState([])
 
@@ -31,8 +37,12 @@ const DeneyimForm = () => {
     }
   }
 
-  
+  //Sayfa güncelleme
+  const forceUpdateHandler =() => {
+    
+    
 
+  }
 
 
   const yabanciDilEkle = (data) => {
@@ -40,6 +50,9 @@ const DeneyimForm = () => {
       .then(res => {
         console.log(res);
         notify();
+    dispatch(fetchDil());
+
+        
 
       })
       .catch(err => {
@@ -50,6 +63,7 @@ const DeneyimForm = () => {
       }
 
       )
+      
   }
 
   const topluYabanciDilEkle = (data) => {

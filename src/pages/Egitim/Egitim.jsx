@@ -73,7 +73,20 @@ const data = {
       pointBorderColor: '#fff',
       pointHoverBackgroundColor: '#fff',
       pointHoverBorderColor: 'rgb(54, 162, 235)'
-    }]
+    },
+    {
+      label: 'Federico Valverde',
+      data: [19, 18, 20],
+      fill: true,
+      backgroundColor: 'rgba(127, 255, 0, 0.2)',
+      borderColor: 'rgb(127, 255, 0)',
+      pointBackgroundColor: 'rgb(127, 255, 0)',
+      pointBorderColor: '#fff',
+      pointHoverBackgroundColor: '#fff',
+      pointHoverBorderColor: 'rgb(54, 162, 235)'
+    },
+    
+  ]
   };
   
   // const RadarData = {
