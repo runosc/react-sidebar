@@ -34,7 +34,7 @@ const Navbarr = () => {
   return (
     <>
       <div className="nav_container background_color2" style={{ '--NavbarColor': `${color.hex}` }}>
-        <h3 className='col-8'>Navbar</h3>
+        <h3 className='col-8'>Panel V3.00001</h3>
 
 
 

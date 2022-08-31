@@ -31,7 +31,7 @@ const UyruklarList = () => {
           <div className="col-md-12">
             <div>Uyruklar</div>
             <div>
-              <table className="table_bg table">
+              <table className="table_bg table table-striped">
                 <thead>
                   <tr>
                     <th scope="col">#</th>

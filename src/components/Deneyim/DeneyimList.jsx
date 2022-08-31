@@ -6,7 +6,7 @@ import { useFormik } from 'formik';
 import Modal from 'react-bootstrap/Modal';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchDil } from '../../stores/dilGetir'
-import {AiFillDelete,AiFillEdit} from 'react-icons/ai'
+import {AiFillDelete,AiFillEdit,AiOutlineUserAdd} from 'react-icons/ai'
 
 
 
@@ -129,10 +129,10 @@ const DeneyimList = () => {
     <>
 
       <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
+        <Modal.Header closeButton >
           <Modal.Title>Dil Güncelle</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body  className="text-dark">
 
           <form
             onSubmit={handleSubmit}
@@ -145,7 +145,7 @@ const DeneyimList = () => {
                   {/* Şirket Adı */}
                   <label
                     htmlFor="dilIsim"
-                    className="form_label form-label"
+                    className="form_label form-label text-dark"
                   >
                     Dil Adı
                   </label>
@@ -167,7 +167,7 @@ const DeneyimList = () => {
                   {/* Pozisyon Adı */}
                   <label
                     htmlFor="dilIcon"
-                    className="form_label form-label"
+                    className="form_label form-label text-dark"
                   >
                     Dil Icon
                   </label>
@@ -210,7 +210,12 @@ const DeneyimList = () => {
                     <th scope="col">Dil İsim</th>
                     <th scope="col">Dil Icon</th>
                     <th scope="col">Dil url</th>
-                    <th scope='col'></th>
+                    <th scope='col'>
+                      <button className='btn btn-success'>
+                      <AiOutlineUserAdd/> Dil Ekle
+                      </button>
+                      
+                      </th>
 
                   </tr>
                 </thead>

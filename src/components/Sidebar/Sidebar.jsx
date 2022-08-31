@@ -62,11 +62,12 @@ const Sidebar = () => {
   return (
     <div className="sidebar">
       <div className="logo_content">
+      <BiIcons.BiMenu id="btn" />
+
         <div className="logo">
           <FaIcons.FaReact />
-          <div className="logo_name">Onur'un Mekanı</div>
+          <div className="logo_name"></div>
         </div>
-        <BiIcons.BiMenu id="btn" />
       </div>
       <ul className="nav_list">
         {/* <li className="li_search">
