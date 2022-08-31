@@ -3,6 +3,8 @@ import { toast } from 'react-toastify'
 import { useFormik } from 'formik'
 import { createdAPIEndpoint, ENDPOINTS } from '../../api'
 import * as XLSX from 'xlsx';
+import {BsFileEarmarkExcelFill} from 'react-icons/bs'
+
 
 import { fetchDil } from '../../stores/dilGetir'
 import { useDispatch } from 'react-redux';
@@ -37,22 +39,14 @@ const DeneyimForm = () => {
     }
   }
 
-  //Sayfa güncelleme
-  const forceUpdateHandler =() => {
-    
-    
-
-  }
-
-
   const yabanciDilEkle = (data) => {
     createdAPIEndpoint(ENDPOINTS.YABANCIDILLER).create(data)
       .then(res => {
         console.log(res);
         notify();
-    dispatch(fetchDil());
+        dispatch(fetchDil());
 
-        
+
 
       })
       .catch(err => {
@@ -63,11 +57,11 @@ const DeneyimForm = () => {
       }
 
       )
-      
+
   }
 
   const topluYabanciDilEkle = (data) => {
-    createdAPIEndpoint(ENDPOINTS.YABANCIDILLERTOPLU).create(data)
+    createdAPIEndpoint(ENDPOINTS.YABANCIDILLERTOPLU).create(json)
       .then(res => {
         console.log(res);
         notify();
@@ -137,10 +131,9 @@ const DeneyimForm = () => {
               <form
                 onSubmit={handleSubmit}
                 autoComplete="off"
-                className="form_bg"
+                className="form_bg bg-dark"
               >
-                <div className="form_title">Dil Ekle</div>
-                <label htmlFor="upload">Upload File</label>
+                <div className="form_title bg-dark border-light text-light">Dil Ekle</div>
 
 
                 <div className="row justify-content-center">
@@ -182,34 +175,27 @@ const DeneyimForm = () => {
                         onChange={handleChange}
                       />
                     </div>
-                    <div>
-
-                      <button type="submit" className="btn btn-warning">
-                        Gönder
+                    <button type="submit" className="btn btn-warning">
+                      Gönder
+                    </button>
+{/* 
+                    
+                    <div className='d-flex mt-3'>
+                      <button onClick={() => { topluYabanciDilEkle(json) }}
+                        className="btn btn-success ">
+                        Excel Ekle
                       </button>
 
                       <input
                         type="file"
                         name="upload"
                         id="upload"
+
                         onChange={readUploadFile}
                       />
-                      <button onClick={() => {
+                    </div> */}
 
-                        topluYabanciDilEkle(json)
-
-                        // console.log("...........",json[0].dilIcon)
-
-                      }}
-                        className="btn btn-warning ">
-                        Excel Ekle
-                      </button>
-
-                      <button onClick={() => this.downloadExcel(deneyimler)}>
-                        Download As Excel
-                      </button>
-
-                    </div>
+                   
 
                   </div>
 
@@ -218,6 +204,17 @@ const DeneyimForm = () => {
 
 
               </form>
+              <div className="input-group mb-3">
+                    
+                      
+                      <input type="file" className="form-control" id="inputGroupFile02" onChange={readUploadFile}/>
+                      <button onClick={() => { topluYabanciDilEkle(json) }}
+                        className="btn btn-success input-group-item ">
+                          <BsFileEarmarkExcelFill className='mx-1'/>
+                        Excel Ekle
+                      </button>
+                       
+                    </div>
             </div>
           </div>
         </div>

@@ -6,6 +6,8 @@ import { useFormik } from 'formik';
 import Modal from 'react-bootstrap/Modal';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchDil } from '../../stores/dilGetir'
+import {AiFillDelete,AiFillEdit} from 'react-icons/ai'
+
 
 
 
@@ -194,20 +196,21 @@ const DeneyimList = () => {
 
       <div className="container">
 
-        <button onClick={() => downloadExcel(diller)}>
-          Download As Excel
+        <button className='btn btn-success' onClick={() => downloadExcel(diller)}>
+          Excelle İndir
         </button>
         <div className="row">
           <div className="col-md-12">
             <div>Diller</div>
             <div>
-              <table className="table_bg table">
+              <table className=" table table-dark table-striped">
                 <thead>
                   <tr>
                     <th scope="col">#</th>
                     <th scope="col">Dil İsim</th>
                     <th scope="col">Dil Icon</th>
                     <th scope="col">Dil url</th>
+                    <th scope='col'></th>
 
                   </tr>
                 </thead>
@@ -227,12 +230,14 @@ const DeneyimList = () => {
                         <th scope='row'><img style={{ "width": "35px" }} src={data.dilIcon} alt="" /></th>
                         <th scope='row'>{data.dilIcon}</th>
                         <th scope='row'>
-                          <button className="btn btn-warning" onClick={() => {
+                          <button className="btn btn-warning me-2" onClick={() => {
                             dilModal(data.id)
-                          }}>Düzenle</button>
-                        </th>
-                        <th scope='row'>
-                          <button className="btn btn-danger" onClick={() => dilSil(data.id)}>Sil</button>
+                          }}>
+                            <AiFillEdit className='mx-1'/>
+                            Düzenle</button>
+                            <button className="btn btn-danger" onClick={() => dilSil(data.id)}>
+                          <AiFillDelete className='mx-1'/>
+                            Sil</button>
                         </th>
                       </tr>
                     )
